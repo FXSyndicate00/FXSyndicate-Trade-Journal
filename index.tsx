@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { TradesProvider } from './context/TradesContext';
+import { AccountsProvider } from './context/AccountsContext';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -12,8 +13,10 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <TradesProvider>
-      <App />
-    </TradesProvider>
+    <AccountsProvider>
+      <TradesProvider>
+        <App />
+      </TradesProvider>
+    </AccountsProvider>
   </React.StrictMode>
 );

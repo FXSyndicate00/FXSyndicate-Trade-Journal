@@ -15,7 +15,11 @@ const TradesContext = createContext<TradesContextType | undefined>(undefined);
 
 export const TradesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const tradesData = useTrades();
-  return <TradesContext.Provider value={tradesData}>{children}</TradesContext.Provider>;
+  return (
+    <TradesContext.Provider value={tradesData}>
+      {children}
+    </TradesContext.Provider>
+  );
 };
 
 export const useTradesContext = (): TradesContextType => {

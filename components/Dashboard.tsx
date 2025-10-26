@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 import { useTradesContext } from '../context/TradesContext';
 import StatCard from './StatCard';
 import TradeList from './TradeList';
+import AccountSummary from './AccountSummary';
 import type { Trade } from '../types';
 
 interface DashboardProps {
@@ -52,20 +53,27 @@ const Dashboard: React.FC<DashboardProps> = ({ onEditTrade }) => {
   }, [trades]);
 
   if (loading) {
-    return <div className="text-center p-8">Loading trades...</div>;
+    return <div className="text-center p-8">Loading dashboard...</div>;
   }
 
   return (
     <div className="space-y-8">
-      <h2 className="text-2xl font-bold text-text-primary">Performance Overview</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
-        <StatCard title="Total P/L" value={stats.totalPnl.toFixed(2)} isCurrency={true} />
-        <StatCard title="Win Rate" value={`${stats.winRate.toFixed(1)}%`} />
-        <StatCard title="Profit Factor" value={isFinite(stats.profitFactor) ? stats.profitFactor.toFixed(2) : 'N/A'} />
-        <StatCard title="Avg. Win" value={stats.avgWin.toFixed(2)} isCurrency={true} />
-        <StatCard title="Avg. Loss" value={stats.avgLoss.toFixed(2)} isCurrency={true} />
-        <StatCard title="Total Trades" value={stats.totalTrades.toString()} />
+      <h2 className="text-2xl font-bold text-text-primary">Dashboard</h2>
+      
+      <AccountSummary />
+
+      <div>
+        <h3 className="text-xl font-bold text-text-primary mb-4">Performance Overview</h3>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+          <StatCard title="Total P/L" value={stats.totalPnl.toFixed(2)} isCurrency={true} />
+          <StatCard title="Win Rate" value={`${stats.winRate.toFixed(1)}%`} />
+          <StatCard title="Profit Factor" value={isFinite(stats.profitFactor) ? stats.profitFactor.toFixed(2) : 'N/A'} />
+          <StatCard title="Avg. Win" value={stats.avgWin.toFixed(2)} isCurrency={true} />
+          <StatCard title="Avg. Loss" value={stats.avgLoss.toFixed(2)} isCurrency={true} />
+          <StatCard title="Total Trades" value={stats.totalTrades.toString()} />
+        </div>
       </div>
+      
       <div>
         <h3 className="text-xl font-bold text-text-primary mb-4">Recent Trades</h3>
         {trades.length === 0 ? (

@@ -15,3 +15,15 @@ export interface Trade {
   notes?: string;
   imageUrl?: string; // base64 string
 }
+
+export enum AccountType {
+  LIVE = 'Live',
+  FUNDED = 'Funded',
+}
+
+export interface Account {
+  id: string;
+  name: string;
+  balance: number;
+  type: AccountType;
+}
