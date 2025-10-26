@@ -7,15 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        'background': '#121826',
-        'surface': '#1a2233',
-        'primary': '#4f46e5',
-        'primary-hover': '#4338ca',
-        'secondary': '#334155',
-        'text-primary': '#f8fafc',
-        'text-secondary': '#94a3b8',
-        'success': '#22c55e',
-        'danger': '#ef4444',
+        'background': '#0d1117', // Very dark blue, almost black
+        'surface': '#161b22',    // Dark grey-blue for cards and modals
+        'primary': '#58a6ff',    // Bright, accessible blue for primary actions
+        'primary-hover': '#2f81f7', // Slightly darker blue for hover
+        'secondary': '#21262d',    // Grey-blue for borders and secondary elements
+        'text-primary': '#c9d1d9', // Soft white for primary text
+        'text-secondary': '#8b949e', // Grey for secondary text
+        'success': '#3fb950',    // Green for profit
+        'danger': '#f85149',     // Red for loss
       },
     }
   },

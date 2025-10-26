@@ -21,7 +21,7 @@ const TradeRow: React.FC<{ trade: Trade; onEdit: (trade: Trade) => void; onDelet
   const formatDate = (dateString: string) => new Date(dateString).toLocaleDateString();
 
   return (
-    <tr className="border-b border-secondary hover:bg-secondary">
+    <tr className="border-b border-secondary hover:bg-secondary transition-colors duration-150">
       <td className="p-3 text-sm hidden md:table-cell">{formatDate(trade.entryDate)}</td>
       <td className="p-3 font-medium">{trade.asset}</td>
       <td className={`p-3 font-semibold ${trade.position === TradePosition.LONG ? 'text-blue-400' : 'text-purple-400'}`}>{trade.position}</td>
@@ -70,14 +70,14 @@ const TradeList: React.FC<TradeListProps> = ({ onEditTrade, showHeader = true, t
         {showHeader && (
           <thead className="bg-secondary">
             <tr>
-              <th className="p-3 text-xs font-semibold uppercase tracking-wider hidden md:table-cell">Date</th>
-              <th className="p-3 text-xs font-semibold uppercase tracking-wider">Asset</th>
-              <th className="p-3 text-xs font-semibold uppercase tracking-wider">Position</th>
-              <th className="p-3 text-xs font-semibold uppercase tracking-wider hidden md:table-cell">Entry</th>
-              <th className="p-3 text-xs font-semibold uppercase tracking-wider hidden lg:table-cell">Exit</th>
-              <th className="p-3 text-xs font-semibold uppercase tracking-wider hidden lg:table-cell">Qty</th>
-              <th className="p-3 text-xs font-semibold uppercase tracking-wider">P/L</th>
-              <th className="p-3 text-xs font-semibold uppercase tracking-wider text-right">Actions</th>
+              <th className="p-3 text-xs font-semibold uppercase tracking-wider text-text-secondary hidden md:table-cell">Date</th>
+              <th className="p-3 text-xs font-semibold uppercase tracking-wider text-text-secondary">Asset</th>
+              <th className="p-3 text-xs font-semibold uppercase tracking-wider text-text-secondary">Position</th>
+              <th className="p-3 text-xs font-semibold uppercase tracking-wider text-text-secondary hidden md:table-cell">Entry</th>
+              <th className="p-3 text-xs font-semibold uppercase tracking-wider text-text-secondary hidden lg:table-cell">Exit</th>
+              <th className="p-3 text-xs font-semibold uppercase tracking-wider text-text-secondary hidden lg:table-cell">Qty</th>
+              <th className="p-3 text-xs font-semibold uppercase tracking-wider text-text-secondary">P/L</th>
+              <th className="p-3 text-xs font-semibold uppercase tracking-wider text-text-secondary text-right">Actions</th>
             </tr>
           </thead>
         )}
